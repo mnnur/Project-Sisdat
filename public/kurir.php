@@ -21,7 +21,7 @@
         </aside>
     <div class="content">
         <nav id="sidenav">
-            <a href="index.php">Home</a>
+            <a href="../index.php">Home</a>
             <a href="produk.php">Produk</a>
             <a href="pengirim.php">Pengirim</a>
             <a href="penerima.php">Penerima</a>

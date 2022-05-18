@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mockup</title>
     
-    <link rel="stylesheet" href="../css/main-style.css">
+    <link rel="stylesheet" href="css/main-style.css">
   </head>
   <body>
     <div class="wrapper">
@@ -21,10 +21,10 @@
     <div class="content">
         <nav>
             <a class="active" href="index.php">Home</a>
-            <a href="produk.php">Produk</a>
-            <a href="pengirim.php">Pengirim</a>
-            <a href="penerima.php">Penerima</a>
-            <a href="kurir.php">Kurir</a>
+            <a href="public/produk.php">Produk</a>
+            <a href="public/pengirim.php">Pengirim</a>
+            <a href="public/penerima.php">Penerima</a>
+            <a href="public/kurir.php">Kurir</a>
         </nav>
         <main>
             <div class="center">
@@ -33,6 +33,6 @@
         </main>
     </div>
     </div>
-	<script src="../js/main-script.js"></script>
+	<script src="js/main-script.js"></script>
   </body>
 </html>
