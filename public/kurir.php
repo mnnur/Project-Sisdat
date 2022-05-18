@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="wrapper">
-        <aside>
+        <aside  id="sidenav">
             <div class="logo">
                 <h2>Mockup</h2>
             </div>
@@ -20,7 +20,7 @@
                 <a href="#">Diinfokan</a>
         </aside>
     <div class="content">
-        <nav>
+        <nav id="sidenav">
             <a href="index.php">Home</a>
             <a href="produk.php">Produk</a>
             <a href="pengirim.php">Pengirim</a>
