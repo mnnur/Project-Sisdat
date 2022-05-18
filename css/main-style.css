@@ -90,3 +90,20 @@ main {
     text-align: center;
     color: #CABCDD;
 }
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+.form-popup {
+    display: none;
+    flex-direction: column;
+}

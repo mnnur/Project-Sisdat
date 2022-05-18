@@ -1,3 +1,21 @@
+<?php
+require '../php/add.php';
+require '../php/connect.php';
+
+if(isset($_POST['submitProduk'])){
+    $id = $_POST['id-produk'];
+    $nama = $_POST['nama-produk'];
+    $berat = $_POST['berat-produk'];
+    $query = "INSERT INTO produk (id_produk, nama_produk, berat) VALUES ('$id', '$nama', '$berat')";
+    $result = mysqli_query(connect(), $query);
+    if($result){
+        echo "Data berhasil ditambahkan";
+    }else{
+        echo "Data gagal ditambahkan";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,13 +50,27 @@
         <main>
             <div class="main-content">
             <h1>Data produk disini</h1>
-                <div class="data-table">
-                    <button>Tambah Produk</button>
-                    <?php
-                        require_once '../php/connect.php';
-                        displayInHTML()
-                    ?>
-                </div>
+                <button class="open-button" id="open-button">Tambah Produk</button>
+                <div class="form-popup" id="formPopup" m>
+                    <form action="" method="POST" class="form-container">
+                    <h1>Tambah Produk</h1>
+
+                    <label for="id-produk"><b>id produk</b></label>
+                    <input type="text" placeholder="Enter id produk" name="id-produk" required>
+
+                    <label for="nama-produk"><b>nama produk</b></label>
+                    <input type="text" placeholder="nama produk" name="nama-produk" required>
+
+                    <label for="berat-produk"><b>berat produk</b></label>
+                    <input type="text" placeholder="berat produk" name="berat-produk" required>
+
+                    <button type="submit" class="btn" name="submitProduk">Tambah</button>
+                    </form>
+                    </div>
+                <?php
+                    require_once '../php/connect.php';
+                    displayInHTML()
+                ?>
         </div>
         </main>
     </div>

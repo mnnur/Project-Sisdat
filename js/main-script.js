@@ -17,3 +17,14 @@ for(let item of list ){
         
     });
 }
+
+$('open-button').addEventListener('click', function(){
+    if($('formPopup').style.display == 'flex'){
+        $('formPopup').style.display = 'none';
+        $('open-button').textContent = 'Tambah Data';
+    }else{
+        $('formPopup').style.display = 'flex';
+        $('open-button').textContent = 'Close';
+    }
+    
+});
