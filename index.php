@@ -15,12 +15,12 @@
                 <h2>Mockup</h2>
             </div>
                 <p id="status">Status</p>
-                <a class="active" href="index.html">Home</a>
+                <a href="index.html">Home</a>
 
         </aside>
     <div class="content">
         <nav>
-            <a class="active" href="index.php">Home</a>
+            <a href="index.php">Home</a>
             <a href="public/produk.php">Produk</a>
             <a href="public/pengirim.php">Pengirim</a>
             <a href="public/penerima.php">Penerima</a>

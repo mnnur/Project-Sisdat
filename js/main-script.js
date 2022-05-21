@@ -18,13 +18,27 @@ for(let item of list ){
     });
 }
 
-$('open-button').addEventListener('click', function(){
-    if($('formPopup').style.display == 'flex'){
-        $('formPopup').style.display = 'none';
-        $('open-button').textContent = 'Tambah Data';
+function displayAddFormPopup(){
+    if($('addFormPopup').style.display == 'block'){
+        $('addFormPopup').style.display = 'none';
     }else{
-        $('formPopup').style.display = 'flex';
-        $('open-button').textContent = 'Close';
+        $('addFormPopup').style.display = 'block';
     }
-    
-});
+}
+
+function closeAddFormPopup(){
+    $('addFormPopup').style.display = 'none';
+}
+
+function displayEditFormPopup(){
+    if($('editFormPopup').style.display == 'block'){
+        $('editFormPopup').style.display = 'none';
+    }
+    else{
+        $('editFormPopup').style.display = 'block';
+    }
+}
+
+function closeEditFormPopup(){
+    $('editFormPopup').style.display = 'none';
+}

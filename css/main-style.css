@@ -37,7 +37,7 @@ nav a:hover{
     background-color: #7F5FAE;
 }
 
-nav a.active {
+nav a:active {
     background-color: #5C4283;
 }
 
@@ -59,7 +59,7 @@ aside a:hover{
     background-color: #6C80B5;
 }
 
-aside a.active {
+aside a:active {
     background-color: #3C4C78;
 }
 
@@ -78,7 +78,6 @@ main {
 .main-content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -103,7 +102,60 @@ table th, table td {
 }
 
 
-.form-popup {
+.add-form-popup {
     display: none;
+    position: absolute;
+    background-color: rgba(96, 96, 96, 0.3);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.edit-form-popup {
+    display: none;
+    position: absolute;
+    background-color: rgba(96, 96, 96, 0.3);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.add-form-popup .form-container {
+    display: flex;
+    position: absolute;
+    width: 50%;
+    height: 50%;
     flex-direction: column;
+    text-align: left;
+    background-color: #fff;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+
+   justify-content: space-evenly;
+}
+
+.edit-form-popup .form-container {
+    display: flex;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    flex-direction: column;
+    text-align: left;
+    background-color: #fff;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+
+   justify-content: space-evenly;
+}
+
+
+.action-buttons {
+    display: flex;
+    justify-content: space-evenly;
 }
