@@ -94,14 +94,14 @@ if (isset($_POST['deleteKurir'])) {
         </form>
     </div>
     <div class="wrapper">
-        <aside id="sidenav">
+        <aside>
             <div class="logo">
                 <h2>Webtracking</h2>
             </div>
             <p id="status">Status Kurir</p>
-            <a href="#">Kurir</a>
-            <a href="#">Mengirim</a>
-            <a href="#">Diinfokan</a>
+            <a href="kurir.php">Kurir</a>
+            <a href="relasi/mengirim.php">Mengirim</a>
+            <a href="relasi/menginfokan.php">Diinfokan</a>
         </aside>
         <div class="content">
             <nav id="sidenav">

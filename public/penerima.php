@@ -89,13 +89,13 @@ if (isset($_POST['deletePenerima'])) {
         </form>
     </div>
     <div class="wrapper">
-        <aside id="sidenav">
+        <aside>
             <div class="logo">
                 <h2>Webtracking</h2>
             </div>
             <p id="status">Status Penerima</p>
-            <a href="#">Penerima</a>
-            <a href="#">Menerima</a>
+            <a href="penerima.php">Penerima</a>
+            <a href="relasi/menerima.php">Menerima</a>
         </aside>
         <div class="content">
             <nav id="sidenav">

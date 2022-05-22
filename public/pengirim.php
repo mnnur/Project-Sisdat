@@ -89,14 +89,14 @@ if (isset($_POST['deletePengirim'])) {
         </form>
     </div>
     <div class="wrapper">
-        <aside id="sidenav">
+        <aside>
             <div class="logo">
                 <h2>Webtracking</h2>
             </div>
             <p id="status">Status Pengirim</p>
-            <a href="#">Pengirim</a>
-            <a href="#">Memiliki</a>
-            <a href="#">Menginfokan Kurir</a>
+            <a href="pengirim.php">Pengirim</a>
+            <a href="relasi/memiliki.php">Memiliki</a>
+            <a href="relasi/menginfokan.php">Menginfokan Kurir</a>
         </aside>
         <div class="content">
             <nav id="sidenav">

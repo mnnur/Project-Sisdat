@@ -89,16 +89,16 @@ if (isset($_POST['deleteProduk'])) {
     </div>
 
     <div class="wrapper">
-        <aside id="sidenav">
+        <aside>
             <div class="logo">
                 <h2>Webtracking</h2>
             </div>
             <p id="status">Status Produk</p>
-            <a href="#">Produk</a>
-            <a href="#">Di Pengirim</a>
-            <a href="#">Di Kurir</a>
-            <a href="#">Dikirim</a>
-            <a href="#">Diterima</a>
+            <a href="produk.php">Produk</a>
+            <a href="relasi/memiliki.php">Di Pengirim</a>
+            <a href="relasi/menginfokan.php">Di Kurir</a>
+            <a href="relasi/mengirim.php">Dikirim</a>
+            <a href="relasi/menerima.php">Diterima</a>
         </aside>
         <div class="content">
             <nav id="sidenav">
