@@ -22,8 +22,16 @@ if (isset($_POST['editKurir'])) {
 //delete
 if (isset($_POST['deleteKurir'])) {
     $id = $_POST['id-kurir'];
-    $query = "DELETE FROM kurir WHERE id_kurir = '$id'";
-    $result = mysqli_query(connect(), $query);
+    $foreignKeyCheck = "SELECT * FROM mengirim WHERE id_kurir = '$id'";
+    $foreignKeyCheck2 = "SELECT * FROM menginfokan WHERE id_kurir = '$id'";
+    $foreignKeyCheckResult = mysqli_query(connect(), $foreignKeyCheck);
+    $foreignKeyCheckResult2 = mysqli_query(connect(), $foreignKeyCheck2);
+    if (mysqli_num_rows($foreignKeyCheckResult) > 0 || mysqli_num_rows($foreignKeyCheckResult2) > 0) {
+        echo "<script>alert('Data tidak bisa dihapus karena terdapat relasi dengan data lain');</script>";
+    } else {
+        $query = "DELETE FROM kurir WHERE id_kurir = '$id'";
+        $result = mysqli_query(connect(), $query);
+    }
 }
 
 ?>
@@ -136,7 +144,7 @@ if (isset($_POST['deleteKurir'])) {
                             echo "<td>";
                             echo "<form action='' method='POST'>";
                             echo "<input type='hidden' name='id-kurir' value='" . $row['id_kurir'] . "'>";
-                            echo "<button type='submit' class='btn' name='deletekurir'>Delete</button>";
+                            echo "<button type='submit' class='btn' name='deleteKurir'>Delete</button>";
                             echo "</form>";
                             echo "</td>";
                             echo "</tr>";

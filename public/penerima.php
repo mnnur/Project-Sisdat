@@ -22,8 +22,14 @@ if (isset($_POST['editPenerima'])) {
 //delete
 if (isset($_POST['deletePenerima'])) {
     $id = $_POST['id-penerima'];
-    $query = "DELETE FROM penerima WHERE id_penerima = '$id'";
-    $result = mysqli_query(connect(), $query);
+    $foreignKeyCheck = "SELECT * FROM menerima WHERE id_penerima = '$id'";
+    $foreignKeyCheckResult = mysqli_query(connect(), $foreignKeyCheck);
+    if (mysqli_num_rows($foreignKeyCheckResult) > 0) {
+        echo "<script>alert('Data tidak bisa dihapus karena terdapat relasi dengan data lain');</script>";
+    } else {
+        $query = "DELETE FROM penerima WHERE id_penerima = '$id'";
+        $result = mysqli_query(connect(), $query);
+    }
 }
 
 ?>

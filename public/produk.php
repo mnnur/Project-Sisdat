@@ -22,8 +22,18 @@ if (isset($_POST['editProduk'])) {
 //delete
 if (isset($_POST['deleteProduk'])) {
     $id = $_POST['id-produk'];
-    $query = "DELETE FROM produk WHERE id_produk = '$id'";
-    $result = mysqli_query(connect(), $query);
+    $foreignKeyCheck = "SELECT * FROM menerima WHERE id_produk = '$id'";
+    $foreignKeyCheck2 = "SELECT * FROM mengirim WHERE id_produk = '$id'";
+    $foreignKeyCheck3 = "SELECT * FROM memiliki WHERE id_produk = '$id'";
+    $foreignKeyCheckResult = mysqli_query(connect(), $foreignKeyCheck);
+    $foreignKeyCheckResult2 = mysqli_query(connect(), $foreignKeyCheck2);
+    $foreignKeyCheckResult3 = mysqli_query(connect(), $foreignKeyCheck3);
+    if (mysqli_num_rows($foreignKeyCheckResult) > 0 || mysqli_num_rows($foreignKeyCheckResult2) > 0 || mysqli_num_rows($foreignKeyCheckResult3) > 0) {
+        echo "<script>alert('Data tidak bisa dihapus karena terdapat relasi dengan data lain');</script>";
+    } else {
+        $query = "DELETE FROM produk WHERE id_produk = '$id'";
+        $result = mysqli_query(connect(), $query);
+    }
 }
 ?>
 
