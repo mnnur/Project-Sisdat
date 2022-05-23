@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2022 at 04:57 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Waktu pembuatan: 23 Bulan Mei 2022 pada 05.19
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kurir`
+-- Struktur dari tabel `kurir`
 --
 
 CREATE TABLE `kurir` (
@@ -34,20 +34,18 @@ CREATE TABLE `kurir` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kurir`
+-- Dumping data untuk tabel `kurir`
 --
 
 INSERT INTO `kurir` (`id_kurir`, `nama_kurir`, `jk_kurir`) VALUES
-('1111111', 'dsdsdsa', 'P'),
-('1224', 'fdf', 'p'),
-('122432', 'ass', 'L'),
-('12343', 'assss', 'L'),
-('23232323', 'as', 'P');
+('004001', 'Budi', 'L'),
+('004002', 'Budiyono', 'L'),
+('004003', 'Elizabeth', 'P');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `memiliki`
+-- Struktur dari tabel `memiliki`
 --
 
 CREATE TABLE `memiliki` (
@@ -56,16 +54,18 @@ CREATE TABLE `memiliki` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `memiliki`
+-- Dumping data untuk tabel `memiliki`
 --
 
 INSERT INTO `memiliki` (`id_pengirim`, `id_produk`) VALUES
-('2221', '123');
+('002001', '001005'),
+('002001', '001004'),
+('002002', '001003');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menerima`
+-- Struktur dari tabel `menerima`
 --
 
 CREATE TABLE `menerima` (
@@ -74,17 +74,16 @@ CREATE TABLE `menerima` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menerima`
+-- Dumping data untuk tabel `menerima`
 --
 
 INSERT INTO `menerima` (`id_penerima`, `id_produk`) VALUES
-('972574', '2233'),
-('4554', '123');
+('003001', '001001');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menginfokan`
+-- Struktur dari tabel `menginfokan`
 --
 
 CREATE TABLE `menginfokan` (
@@ -93,16 +92,16 @@ CREATE TABLE `menginfokan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menginfokan`
+-- Dumping data untuk tabel `menginfokan`
 --
 
 INSERT INTO `menginfokan` (`id_kurir`, `id_pengirim`) VALUES
-('1111111', '1111');
+('004003', '002003');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mengirim`
+-- Struktur dari tabel `mengirim`
 --
 
 CREATE TABLE `mengirim` (
@@ -111,17 +110,16 @@ CREATE TABLE `mengirim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `mengirim`
+-- Dumping data untuk tabel `mengirim`
 --
 
 INSERT INTO `mengirim` (`id_kurir`, `id_produk`) VALUES
-('1111111', '123'),
-('1111111', '2233');
+('004001', '001004');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penerima`
+-- Struktur dari tabel `penerima`
 --
 
 CREATE TABLE `penerima` (
@@ -131,17 +129,17 @@ CREATE TABLE `penerima` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penerima`
+-- Dumping data untuk tabel `penerima`
 --
 
 INSERT INTO `penerima` (`id_penerima`, `nama_penerima`, `alamat_penerima`) VALUES
-('4554', 'kenapa di ganti', '24 jalan 24'),
-('972574', 'namanya ga ada katanya', 'yaudah ga usah');
+('003001', 'Sukijan', 'Jl. Kemah'),
+('003002', 'Hermawan Suntoso', 'Jl. Penari');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengirim`
+-- Struktur dari tabel `pengirim`
 --
 
 CREATE TABLE `pengirim` (
@@ -151,17 +149,18 @@ CREATE TABLE `pengirim` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengirim`
+-- Dumping data untuk tabel `pengirim`
 --
 
 INSERT INTO `pengirim` (`id_pengirim`, `nama_pengirim`, `alamat_pengirim`) VALUES
-('1111', 'tadi salah', 'tapi udh di edit'),
-('2221', 'kastanye merah', 'jalan mencari cinta');
+('002001', 'Toko Serbaada', 'Jl. Informatika no. 1'),
+('002002', 'Toko Millenium Elektrik', 'Jl. Pasir Rumput'),
+('002003', 'Sandi Store', 'Jl. Informatika no. 24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -171,97 +170,99 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `berat`) VALUES
-('123', 'ass', 2),
-('2233', '12', 4),
-('333', 'abc', 3);
+('001001', 'Nastar Istimewa', 1),
+('001002', 'Kunyit Merah', 1),
+('001003', 'Susu Beruang', 2),
+('001004', 'NULLTX Graphic Processor', 1),
+('001005', 'Air Botol Kemasan Ultra HD+', 5);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `kurir`
+-- Indeks untuk tabel `kurir`
 --
 ALTER TABLE `kurir`
   ADD PRIMARY KEY (`id_kurir`);
 
 --
--- Indexes for table `memiliki`
+-- Indeks untuk tabel `memiliki`
 --
 ALTER TABLE `memiliki`
   ADD KEY `id_pengirim` (`id_pengirim`),
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `menerima`
+-- Indeks untuk tabel `menerima`
 --
 ALTER TABLE `menerima`
   ADD KEY `id_penerima` (`id_penerima`),
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `menginfokan`
+-- Indeks untuk tabel `menginfokan`
 --
 ALTER TABLE `menginfokan`
   ADD KEY `id_kurir` (`id_kurir`),
   ADD KEY `id_pengirim` (`id_pengirim`);
 
 --
--- Indexes for table `mengirim`
+-- Indeks untuk tabel `mengirim`
 --
 ALTER TABLE `mengirim`
   ADD KEY `id_kurir` (`id_kurir`),
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `penerima`
+-- Indeks untuk tabel `penerima`
 --
 ALTER TABLE `penerima`
   ADD PRIMARY KEY (`id_penerima`);
 
 --
--- Indexes for table `pengirim`
+-- Indeks untuk tabel `pengirim`
 --
 ALTER TABLE `pengirim`
   ADD PRIMARY KEY (`id_pengirim`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `memiliki`
+-- Ketidakleluasaan untuk tabel `memiliki`
 --
 ALTER TABLE `memiliki`
   ADD CONSTRAINT `memiliki_ibfk_1` FOREIGN KEY (`id_pengirim`) REFERENCES `pengirim` (`id_pengirim`),
   ADD CONSTRAINT `memiliki_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 
 --
--- Constraints for table `menerima`
+-- Ketidakleluasaan untuk tabel `menerima`
 --
 ALTER TABLE `menerima`
   ADD CONSTRAINT `menerima_ibfk_1` FOREIGN KEY (`id_penerima`) REFERENCES `penerima` (`id_penerima`),
   ADD CONSTRAINT `menerima_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 
 --
--- Constraints for table `menginfokan`
+-- Ketidakleluasaan untuk tabel `menginfokan`
 --
 ALTER TABLE `menginfokan`
   ADD CONSTRAINT `menginfokan_ibfk_1` FOREIGN KEY (`id_kurir`) REFERENCES `kurir` (`id_kurir`),
   ADD CONSTRAINT `menginfokan_ibfk_2` FOREIGN KEY (`id_pengirim`) REFERENCES `pengirim` (`id_pengirim`);
 
 --
--- Constraints for table `mengirim`
+-- Ketidakleluasaan untuk tabel `mengirim`
 --
 ALTER TABLE `mengirim`
   ADD CONSTRAINT `mengirim_ibfk_1` FOREIGN KEY (`id_kurir`) REFERENCES `kurir` (`id_kurir`),
