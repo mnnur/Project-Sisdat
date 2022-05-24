@@ -62,8 +62,8 @@ if (isset($_POST['deletePengirim'])) {
             <label for="alamat-pengirim"><b>alamat pengirim</b></label>
             <input type="text" placeholder="alamat pengirim" name="alamat-pengirim" required>
             <div class="action-button">
-                <button type="submit" class="btn" name="submitPengirim" id="submitButton">Tambah</button>
-                <button class="btn" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
+                <button type="submit" class="open-button-add" name="submitPengirim" id="submitButton">Tambah</button>
+                <button class="btn-delete" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
             </div>
         </form>
     </div>
@@ -91,8 +91,8 @@ if (isset($_POST['deletePengirim'])) {
             <input type="text" placeholder="alamat pengirim" name="alamat-pengirim-edit" required>
 
             <div class="action-button">
-                <button type="submit" class="btn-edit" name="editPengirim">Edit</button>
-                <button type="button" class="btn-close-edit" id="close-button-edit" onclick="closeEditFormPopup()">Tutup</button>
+                <button type="submit" class="open-button-edit" name="editPengirim">Edit</button>
+                <button type="button" class="btn-delete" id="close-button-edit" onclick="closeEditFormPopup()">Tutup</button>
             </div>
         </form>
     </div>
@@ -139,7 +139,7 @@ if (isset($_POST['deletePengirim'])) {
                             echo "<td>";
                             echo "<form action='' method='POST'>";
                             echo "<input type='hidden' name='id-pengirim' value='" . $row['id_pengirim'] . "'>";
-                            echo "<button type='submit' class='btn' name='deletePengirim'>Delete</button>";
+                            echo "<button type='submit' class='btn-delete' name='deletePengirim'>Delete</button>";
                             echo "</form>";
                             echo "</td>";
                             echo "</tr>";

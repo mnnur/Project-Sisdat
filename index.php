@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mockup</title>
+    <title>Webtracking</title>
     
     <link rel="stylesheet" href="css/main-style.css">
   </head>
@@ -12,7 +12,7 @@
     <div class="wrapper">
         <aside  id="sidenav">
             <div class="logo">
-                <h2>Mockup</h2>
+                <h2>Webtracking</h2>
             </div>
                 <p id="status">Status</p>
                 <a href="index.html">Home</a>
@@ -27,7 +27,7 @@
             <a href="public/kurir.php">Kurir</a>
         </nav>
         <main>
-            <div class="center">
+            <div class="main-content">
             <h1>Selamat Datang!</h1>
         </div>
         </main>

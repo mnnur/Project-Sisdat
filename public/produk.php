@@ -63,8 +63,8 @@ if (isset($_POST['deleteProduk'])) {
             <label for="berat-produk"><b>berat produk</b></label>
             <input type="number" placeholder="berat produk" name="berat-produk" required>
             <div class="action-button">
-                <button type="submit" class="btn" name="submitProduk" id="submitButton">Tambah</button>
-                <button class="btn" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
+                <button type="submit" class="open-button-add" name="submitProduk" id="submitButton">Tambah</button>
+                <button class="btn-delete" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
             </div>
         </form>
     </div>
@@ -92,8 +92,8 @@ if (isset($_POST['deleteProduk'])) {
             <input type="number" placeholder="berat produk" name="berat-produk-edit" required>
 
             <div class="action-button">
-            <button type="submit" class="btn-edit" name="editProduk">Edit</button>
-            <button type="button" class="btn-close-edit" id="close-button-edit" onclick="closeEditFormPopup()">Tutup</button>
+            <button type="submit" class="open-button-edit" name="editProduk">Edit</button>
+            <button type="button" class="btn-delete" id="close-button-edit" onclick="closeEditFormPopup()">Tutup</button>
             </div>
         </form>
     </div>
@@ -143,7 +143,7 @@ if (isset($_POST['deleteProduk'])) {
                             echo "<td>";
                             echo "<form action='' method='POST'>";
                             echo "<input type='hidden' name='id-produk' value='" . $row['id_produk'] . "'>";
-                            echo "<button type='submit' class='btn' name='deleteProduk'>Delete</button>";
+                            echo "<button type='submit' class='btn-delete' name='deleteProduk'>Delete</button>";
                             echo "</form>";
                             echo "</td>";
                             echo "</tr>";

@@ -65,8 +65,8 @@ if (isset($_POST['deleteKurir'])) {
                 <input type="radio" name="jk-kurir" <?php if (isset($jk) && $jk == "L") echo "checked"; ?> value="L">Laki-Laki
             </div>
             <div class="action-button">
-                <button type="submit" class="btn" name="submitKurir" id="submitButton">Tambah</button>
-                <button class="btn" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
+                <button type="submit" class="open-button-add" name="submitKurir" id="submitButton">Tambah</button>
+                <button class="btn-delete" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
             </div>
         </form>
     </div>
@@ -96,8 +96,8 @@ if (isset($_POST['deleteKurir'])) {
             </div>
 
             <div class="action-button">
-                <button type="submit" class="btn-edit" name="editKurir">Edit</button>
-                <button type="button" class="btn-close-edit" id="close-button-edit" onclick="closeEditFormPopup()">Tutup</button>
+                <button type="submit" class="open-button-edit" name="editKurir">Edit</button>
+                <button type="button" class="btn-delete" id="close-button-edit" onclick="closeEditFormPopup()">Tutup</button>
             </div>
         </form>
     </div>
@@ -144,7 +144,7 @@ if (isset($_POST['deleteKurir'])) {
                             echo "<td>";
                             echo "<form action='' method='POST'>";
                             echo "<input type='hidden' name='id-kurir' value='" . $row['id_kurir'] . "'>";
-                            echo "<button type='submit' class='btn' name='deleteKurir'>Delete</button>";
+                            echo "<button type='submit' class='btn-delete' name='deleteKurir'>Delete</button>";
                             echo "</form>";
                             echo "</td>";
                             echo "</tr>";

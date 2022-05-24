@@ -58,8 +58,8 @@ if (isset($_POST['deleteMemiliki'])) {
                 ?>
             </select>
                 <div class="action-button">
-                    <button type="submit" class="btn" name="submitMemiliki" id="submitButton">Tambah</button>
-                    <button class="btn" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
+                    <button type="submit" class="open-button-add" name="submitMemiliki" id="submitButton">Tambah</button>
+                    <button class="btn-delete" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
                 </div>
         </form>
     </div>
@@ -105,7 +105,7 @@ if (isset($_POST['deleteMemiliki'])) {
                             echo "<form action='' method='POST'>";
                             echo "<input type='hidden' name='id-pengirim' value='" . $row['id_pengirim'] . "'>";
                             echo "<input type='hidden' name='id-produk' value='" . $row['id_produk'] . "'>";
-                            echo "<button type='submit' class='btn' name='deleteMemiliki'>Delete</button>";
+                            echo "<button type='submit' class='btn-delete' name='deleteMemiliki'>Delete</button>";
                             echo "</form>";
                             echo "</td>";
                             echo "</tr>";

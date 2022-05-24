@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+button {
+    cursor: pointer;
+}
+
 .wrapper {
     display: flex;
     height: 100vh;
@@ -91,16 +95,18 @@ main {
 }
 
 
-table {
+table, th, td {
     border-collapse: collapse;
-    width: 100%;
-}
-
-table th, table td {
-    text-align: left;
+    text-align: center;
     padding: 8px;
+    margin: 8px;
+    border: 1px solid #000;
+    width: 80%;
 }
 
+th, td {
+    width: 100px;
+}
 
 .add-form-popup {
     display: none;
@@ -159,3 +165,43 @@ table th, table td {
     display: flex;
     justify-content: space-evenly;
 }
+
+.btn-delete {
+    color: #ffffff;
+    background: #e02626;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+  }
+  
+.btn-delete:hover {
+    background: #9c1a1a;
+    text-decoration: none;
+}
+
+.open-button-add {
+color: #ffffff;
+background: #11ab47;
+padding: 10px 20px 10px 20px;
+text-decoration: none;
+border: none;
+}
+
+.open-button-add:hover {
+background: #0d8033;
+text-decoration: none;
+}
+
+
+.open-button-edit {
+    color: #ffffff;
+    background: #f5a031;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+  }
+  
+  .open-button-edit:hover {
+    background: #cc8529;
+    text-decoration: none;
+  }
