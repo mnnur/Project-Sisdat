@@ -1,163 +1,122 @@
-* {
-    box-sizing: border-box;
+<?php
+require '../../php/connect.php';
+
+//add
+if (isset($_POST['submitMemiliki'])) {
+    $idpengirim = $_POST['id-pengirim'];
+    $idProduk = $_POST['id-produk'];
+    $query = "INSERT INTO Memiliki (id_pengirim, id_produk) VALUES ('$idpengirim', '$idProduk')";
+    $result = mysqli_query(connect(), $query);
 }
 
-body {
-    margin: 0;
+//delete
+if (isset($_POST['deleteMemiliki'])) {
+    $idpengirim = $_POST['id-pengirim'];
+    $idProduk = $_POST['id-produk'];
+    $query = "DELETE FROM Memiliki WHERE id_pengirim = '$idpengirim' AND id_produk = '$idProduk'";
+    $result = mysqli_query(connect(), $query);
 }
 
-.wrapper {
-    display: flex;
-    height: 100vh;
-}
+?>
 
-.content {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-nav {
-    display: flex;
-    overflow: hidden;
-    background-color: #6B4D98;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Webtracking</title>
 
-}
+    <link rel="stylesheet" href="../../css/main-style.css">
+</head>
 
-nav a{
-    flex: 1 1 0;
-    padding: 20px;
-    font-size: 17px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-}
+<body>
+    <div class="add-form-popup" id="addFormPopup">
+        <form action="" method="POST" class="form-container">
+            <h1>Produk di pengirim</h1>
 
-nav a:hover{
-    background-color: #7F5FAE;
-}
+            <label for="id-pengirim"><b>id pengirim</b></label>
+            <select name="id-pengirim" id="id-pengirim">
+                <?php
+                $query = "SELECT * FROM pengirim";
+                $result = mysqli_query(connect(), $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='" . $row['id_pengirim'] . "'>" . $row['id_pengirim'] . "</option>";
+                }
+                ?>
+            </select>
 
-nav a:active {
-    background-color: #5C4283;
-}
+            <label for="id-produk"><b>id produk</b></label>
+            <select name="id-produk" id="id-produk">
+                <?php
+                $query = "SELECT * FROM produk";
+                $result = mysqli_query(connect(), $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='" . $row['id_produk'] . "'>" . $row['id_produk'] . "</option>";
+                }
+                ?>
+            </select>
+                <div class="action-button">
+                    <button type="submit" class="open-button-add" name="submitMemiliki" id="submitButton">Tambah</button>
+                    <button class="btn-delete" id="closeAddButton" onclick="closeAddFormPopup()">Tutup</button>
+                </div>
+        </form>
+    </div>
 
-aside{
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 200px;
-    background-color: #4D6199;
-}
+    <div class="wrapper">
+        <aside>
+            <div class="logo">
+                <h2>Webtracking</h2>
+            </div>
+            <p id="status">Status Memiliki</p>
+            <a href="memiliki.php">Memiliki</a>
+            <a href="../produk.php">Produk</a>
+            <a href="../pengirim.php">Pengirim</a>
+        </aside>
+        <div class="content">
+            <nav id="sidenav">
+                <a href="../../index.php">Home</a>
+                <a href="../produk.php">Produk</a>
+                <a href="../pengirim.php">Pengirim</a>
+                <a href="../penerima.php">Penerima</a>
+                <a href="../kurir.php">Kurir</a>
+            </nav>
+            <main>
+                <div class="main-content">
+                    <h1>Data produk di pengirim</h1>
+                    <div class="action-button">
+                        <button class="open-button-add" id="open-button-add" onclick="displayAddFormPopup()">Tambah produk masih di pengirim</button>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>ID pengirim</th>
+                            <th>ID produk</th>
+                            <th>Aksi</th>
+                        </tr>
+                        <?php
+                        $query = "SELECT * FROM memiliki";
+                        $result = mysqli_query(connect(), $query);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>";
+                            echo "<td>" . $row['id_pengirim'] . "</td>";
+                            echo "<td>" . $row['id_produk'] . "</td>";
+                            echo "<td>";
+                            echo "<form action='' method='POST'>";
+                            echo "<input type='hidden' name='id-pengirim' value='" . $row['id_pengirim'] . "'>";
+                            echo "<input type='hidden' name='id-produk' value='" . $row['id_produk'] . "'>";
+                            echo "<button type='submit' class='btn-delete' name='deleteMemiliki'>Delete</button>";
+                            echo "</form>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="../../js/main-script.js"></script>
+</body>
 
-aside a{
-    padding: 20px;
-    font-size: 17px;
-    text-decoration: none;
-    color: #fff;
-}
-
-aside a:hover{
-    background-color: #6C80B5;
-}
-
-aside a:active {
-    background-color: #3C4C78;
-}
-
-main {
-    flex: 1;
-    background-color: #fffcf7;
-}
-
-#status {
-    padding: 0px 5px;
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    margin: 0;
-}
-
-.main-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.product-table{
-    flex: 1 1 auto;
-}
-
-.logo {
-    text-align: center;
-    color: #CABCDD;
-}
-
-
-table, td, th {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 800px;
-    border: 1px solid#120808;
-    text-align: left;
-    padding: 8px;
-}
-
-td{
-    background-color: success;
-}
-
-.add-form-popup {
-    display: none;
-    position: absolute;
-    background-color: rgba(96, 96, 96, 0.3);
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-}
-
-.edit-form-popup {
-    display: none;
-    position: absolute;
-    background-color: rgba(96, 96, 96, 0.3);
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-}
-
-.add-form-popup .form-container {
-    display: flex;
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    flex-direction: column;
-    text-align: left;
-    background-color: #fff;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    padding: 20px;
-
-   justify-content: space-evenly;
-}
-
-.edit-form-popup .form-container {
-    display: flex;
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    flex-direction: column;
-    text-align: left;
-    background-color: #fff;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    padding: 20px;
-
-   justify-content: space-evenly;
-}
-
-
-.action-buttons {
-    display: flex;
-    justify-content: space-evenly;
-}
+</html>
